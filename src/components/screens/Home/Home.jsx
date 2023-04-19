@@ -31,12 +31,12 @@ const Home = () => {
     const copy = [...todos];
     const current = copy.find((t) => t._id === id);
     current.isComplited = !current.isComplited;
-    console.log("copy", copy);
-    console.log("current", current);
     setTodos(copy);
   };
 
-  console.log("todos", todos);
+  const removeTodo = (id) => {
+    setTodos([...todos].filter((t) => t._id !== id));
+  };
 
   return (
     <div className=" text-white w-4/5 mx-auto">
@@ -44,7 +44,12 @@ const Home = () => {
         Saveliy Kononov TodoApp
       </h1>
       {todos.map((todo) => (
-        <TodoItem key={todo._id} todo={todo} changeTodo={changeTodo} />
+        <TodoItem
+          key={todo._id}
+          todo={todo}
+          changeTodo={changeTodo}
+          removeTodo={removeTodo}
+        />
       ))}{" "}
     </div>
   );
