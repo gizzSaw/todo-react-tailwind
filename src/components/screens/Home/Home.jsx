@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodoItem from "./Item/TodoItem";
+import CreateTodoField from "./create-todo-field/CreateTodoField.jsx";
 
 const data = [
   {
@@ -43,6 +44,7 @@ const Home = () => {
       <h1 className="text-2xl font-bold text-center mb-4">
         Saveliy Kononov TodoApp
       </h1>
+      <CreateTodoField setTodos={setTodos} />
       {todos.map((todo) => (
         <TodoItem
           key={todo._id}
@@ -50,7 +52,7 @@ const Home = () => {
           changeTodo={changeTodo}
           removeTodo={removeTodo}
         />
-      ))}{" "}
+      ))}
     </div>
   );
 };
